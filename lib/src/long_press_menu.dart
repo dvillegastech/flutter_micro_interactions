@@ -38,6 +38,7 @@ class LongPressMenu extends StatefulWidget {
 
 class _LongPressMenuState extends State<LongPressMenu> {
   void _showContextMenu(BuildContext context, Offset globalPosition) async {
+    final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
     if (widget.enableHaptics) {
       try {
         await HapticFeedback.mediumImpact();
@@ -45,24 +46,22 @@ class _LongPressMenuState extends State<LongPressMenu> {
         // Haptic feedback might not be available on all platforms
       }
     }
-
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
-    
+    if (!mounted) return;
     await showMenu<void>(
-      context: context,
+      context: this.context,
       position: RelativeRect.fromRect(
         Rect.fromLTWH(globalPosition.dx, globalPosition.dy, 0, 0),
         Offset.zero & overlay.size,
       ),
       items: widget.menuItems.map((item) {
         return PopupMenuItem<void>(
+          onTap: item.onTap,
           child: ListTile(
             leading: Icon(item.icon, size: 20),
             title: Text(item.label),
             dense: true,
             contentPadding: EdgeInsets.zero,
           ),
-          onTap: item.onTap,
         );
       }).toList(),
       elevation: widget.menuElevation,

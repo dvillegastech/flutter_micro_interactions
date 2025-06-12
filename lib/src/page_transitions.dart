@@ -43,11 +43,9 @@ class PageTransition<T> extends PageRoute<T> {
     this.reverseDuration = const Duration(milliseconds: 300),
     this.alignment,
     this.curve = Curves.easeInOut,
-    this.fullscreenDialog = false,
+    super.fullscreenDialog,
     this.maintainState = true,
-  }) : super(
-          fullscreenDialog: fullscreenDialog,
-        );
+  }) : _fullscreenDialog = fullscreenDialog;
 
   @override
   Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
@@ -169,9 +167,12 @@ class PageTransition<T> extends PageRoute<T> {
   final Curve curve;
 
   /// Whether this is a fullscreen dialog.
-  final bool fullscreenDialog;
+  final bool _fullscreenDialog;
+  @override
+  bool get fullscreenDialog => _fullscreenDialog;
 
   /// Whether to maintain the state of the page when it's not visible.
+  @override
   final bool maintainState;
 
   @override

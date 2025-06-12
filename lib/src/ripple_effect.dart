@@ -144,7 +144,7 @@ class _RipplePainter extends CustomPainter {
       final opacity = (1.0 - rippleProgress).clamp(0.0, 1.0);
 
       final paint = Paint()
-        ..color = rippleColor.withOpacity(opacity)
+        ..color = rippleColor.withValues(alpha: opacity)
         ..style = PaintingStyle.fill;
 
       canvas.drawCircle(center, radius, paint);
@@ -316,7 +316,7 @@ class _WaterRipplePainter extends CustomPainter {
       final opacity = (1.0 - waveProgress).clamp(0.0, 0.5);
 
       final paint = Paint()
-        ..color = rippleColor.withOpacity(opacity)
+        ..color = rippleColor.withValues(alpha: opacity)
         ..style = PaintingStyle.stroke
         ..strokeWidth = 2.0;
 
