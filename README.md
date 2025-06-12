@@ -1,5 +1,7 @@
 # Flutter Micro Interactions
 
+![Preview](micro_interactions.gif)
+
 A collection of pre-built micro-interactions and animations for Flutter apps. Make your app feel more responsive and engaging with minimal effort. This package provides easy-to-use widgets that add professional animations to your Flutter application.
 
 ## Features
@@ -18,6 +20,16 @@ A collection of pre-built micro-interactions and animations for Flutter apps. Ma
 - Ripple Effect
 - Page Transitions
 - Loading Skeletons
+- **Toast Notifications** (Animated, multiple styles)
+- **Floating Label Animation** (Smooth, with validation)
+- **Reorderable List Animation** (Drag & drop with feedback)
+- **Card Flip Animation** (3D flip with perspective)
+
+## Preview
+
+See below for a preview of the package in action:
+
+![Flutter Micro Interactions Preview](micro_interactions.gif)
 
 ## Installation
 
@@ -25,7 +37,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flutter_micro_interactions: ^0.0.1
+  flutter_micro_interactions: ^0.0.2
 ```
 
 ## Usage
@@ -302,21 +314,62 @@ SkeletonLoader(
 );
 ```
 
-## Customization
+### Toast Notifications
 
-All widgets support customization through optional parameters:
+Show animated toast notifications with different styles:
 
 ```dart
-TapFeedback.scale(
-  scaleFactor: 0.95, // Custom scale factor
-  duration: Duration(milliseconds: 150), // Custom duration
-  child: YourWidget(),
+context.showToast(
+  message: 'Operation completed successfully!',
+  type: ToastType.success,
 );
+```
 
-HoverGlow(
-  glowColor: Colors.blue, // Custom glow color
-  glowRadius: 20.0, // Custom glow radius
-  child: YourWidget(),
+### Floating Label Animation
+
+Animated floating label with validation:
+
+```dart
+FloatingLabel(
+  label: 'Email',
+  hint: 'Enter your email',
+  validator: (value) {
+    if (value == null || value.isEmpty) {
+      return 'Email is required';
+    }
+    if (!value.contains('@')) {
+      return 'Please enter a valid email';
+    }
+    return null;
+  },
+);
+```
+
+### Reorderable List Animation
+
+Drag and drop to reorder items with smooth feedback:
+
+```dart
+ReorderableList(
+  children: items.map((item) => ListTile(title: Text(item))).toList(),
+  onReorder: (oldIndex, newIndex) {
+    setState(() {
+      if (oldIndex < newIndex) newIndex -= 1;
+      final item = items.removeAt(oldIndex);
+      items.insert(newIndex, item);
+    });
+  },
+);
+```
+
+### Card Flip Animation
+
+Flip cards with 3D perspective:
+
+```dart
+CardFlip(
+  front: Card(child: Text('Front')),
+  back: Card(child: Text('Back')),
 );
 ```
 
@@ -330,20 +383,7 @@ flutter run
 ```
 
 The example app showcases:
-- Different tap feedback effects (scale, bounce, fade, combined)
-- Button state transitions with loading/success/error states
-- Hover effects for desktop/web
-- Input field focus animations
-- Pull-to-refresh functionality
-- Swipe actions for list items
-- Long press context menus
-- Parallax scrolling effects
-- Shake gesture detection
-- Morphing shape animations
-- Elastic scroll behavior
-- Ripple effects on tap
-- Custom page transitions
-- Loading skeleton screens
+- All micro-interactions listed above
 
 ## Platform Support
 

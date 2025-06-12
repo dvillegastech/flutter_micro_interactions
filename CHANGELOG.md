@@ -1,3 +1,10 @@
+## 0.0.2
+
+* Added Toast Notifications (animated, multiple styles)
+* Added Floating Label Animation (with validation)
+* Added Reorderable List Animation (drag & drop, feedback)
+* Added Card Flip Animation (3D flip, perspective)
+
 ## 0.0.1
 
 * Initial release of flutter_micro_interactions package
