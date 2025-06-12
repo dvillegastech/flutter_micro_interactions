@@ -199,13 +199,13 @@ class TapFeedbackTab extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [Colors.purple, Colors.deepPurple],
                   ),
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.purple.withOpacity(0.3),
+                      color: Colors.purple.withValues(alpha: 0.3),
                       blurRadius: 8,
                       offset: const Offset(0, 4),
                     ),
@@ -654,7 +654,7 @@ class _PullToRefreshTabState extends State<PullToRefreshTab> {
                 child: Text('${index + 1}'),
               ),
               title: Text(items[index]),
-              subtitle: Text('Pull down to refresh'),
+              subtitle: const Text('Pull down to refresh'),
             );
           },
         ),
@@ -1199,7 +1199,7 @@ class _DemoPage extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       body: Container(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -1597,7 +1597,7 @@ class _CardFlipTabState extends State<CardFlipTab> {
   Widget _buildCardFace(String title, IconData icon, Color color) {
     return Container(
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
@@ -1617,7 +1617,7 @@ class _CardFlipTabState extends State<CardFlipTab> {
           Text(
             'Tap to flip',
             style: TextStyle(
-              color: color.withOpacity(0.7),
+              color: color.withValues(alpha: 0.7),
             ),
           ),
         ],

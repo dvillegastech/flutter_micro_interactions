@@ -79,15 +79,15 @@ class _ReorderableListState extends State<ReorderableList> {
         ..scale(isDragging ? 1.05 : 1.0),
       decoration: BoxDecoration(
         color: isDragging
-            ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
+            ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.1)
             : isTarget
-                ? Theme.of(context).colorScheme.primary.withOpacity(0.05)
+                ? Theme.of(context).colorScheme.primary.withValues(alpha:0.05)
                 : null,
         borderRadius: BorderRadius.circular(8),
         boxShadow: isDragging
             ? [
                 BoxShadow(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                  color: Theme.of(context).colorScheme.primary.withValues(alpha:0.2),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),
@@ -127,12 +127,12 @@ extension ReorderableListExtension on List<Widget> {
     ScrollPhysics? physics,
   }) {
     return ReorderableList(
-      children: this,
       onReorder: onReorder,
       padding: padding,
       scrollController: scrollController,
       shrinkWrap: shrinkWrap,
       physics: physics,
+      children: this,
     );
   }
 } 

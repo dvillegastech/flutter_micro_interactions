@@ -74,7 +74,6 @@ class TapFeedback extends StatefulWidget {
   }) {
     return TapFeedback(
       key: key,
-      child: child,
       onTap: onTap,
       scaleDown: scale,
       duration: duration,
@@ -82,6 +81,7 @@ class TapFeedback extends StatefulWidget {
       enableScale: true,
       enableOpacity: false,
       enableHaptics: enableHaptics,
+      child: child,
     );
   }
 
@@ -98,7 +98,6 @@ class TapFeedback extends StatefulWidget {
   }) {
     return TapFeedback(
       key: key,
-      child: child,
       onTap: onTap,
       scaleDown: scaleDown,
       scaleUp: scaleUp,
@@ -107,6 +106,7 @@ class TapFeedback extends StatefulWidget {
       enableScale: true,
       enableOpacity: false,
       enableHaptics: enableHaptics,
+      child: child,
     );
   }
 
@@ -122,7 +122,6 @@ class TapFeedback extends StatefulWidget {
   }) {
     return TapFeedback(
       key: key,
-      child: child,
       onTap: onTap,
       opacity: opacity,
       duration: duration,
@@ -130,6 +129,7 @@ class TapFeedback extends StatefulWidget {
       enableScale: false,
       enableOpacity: true,
       enableHaptics: enableHaptics,
+      child: child,
     );
   }
 
@@ -146,7 +146,6 @@ class TapFeedback extends StatefulWidget {
   }) {
     return TapFeedback(
       key: key,
-      child: child,
       onTap: onTap,
       scaleDown: scale,
       opacity: opacity,
@@ -155,6 +154,7 @@ class TapFeedback extends StatefulWidget {
       enableScale: true,
       enableOpacity: true,
       enableHaptics: enableHaptics,
+      child: child,
     );
   }
 

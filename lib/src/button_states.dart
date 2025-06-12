@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// A widget that provides state transitions for buttons.
 class ButtonStates extends StatefulWidget {
   /// Creates a button states widget with the specified transitions.
-  ButtonStates({
+  const ButtonStates({
     required this.stateKey,
     required this.child,
     required this.onLoading,
@@ -13,7 +13,7 @@ class ButtonStates extends StatefulWidget {
   }) : super(key: stateKey);
 
   /// The key to access the state.
-  final GlobalKey<_ButtonStatesState> stateKey;
+  final GlobalKey<ButtonStatesState> stateKey;
 
   /// The child widget to animate.
   final Widget child;
@@ -39,7 +39,7 @@ class ButtonStates extends StatefulWidget {
     required Widget child,
   }) {
     return ButtonStates(
-      stateKey: GlobalKey<_ButtonStatesState>(),
+      stateKey: GlobalKey<ButtonStatesState>(),
       onLoading: onLoading,
       onSuccess: onSuccess,
       onError: onError,
@@ -50,29 +50,29 @@ class ButtonStates extends StatefulWidget {
 
   /// Sets the button state to loading.
   void setLoading() {
-    (stateKey.currentState as _ButtonStatesState).setLoading();
+    (stateKey.currentState as ButtonStatesState).setLoading();
   }
 
   /// Sets the button state to success.
   void setSuccess() {
-    (stateKey.currentState as _ButtonStatesState).setSuccess();
+    (stateKey.currentState as ButtonStatesState).setSuccess();
   }
 
   /// Sets the button state to error.
   void setError() {
-    (stateKey.currentState as _ButtonStatesState).setError();
+    (stateKey.currentState as ButtonStatesState).setError();
   }
 
   /// Resets the button state to initial.
   void reset() {
-    (stateKey.currentState as _ButtonStatesState).reset();
+    (stateKey.currentState as ButtonStatesState).reset();
   }
 
   @override
-  State<ButtonStates> createState() => _ButtonStatesState();
+  State<ButtonStates> createState() => ButtonStatesState();
 }
 
-class _ButtonStatesState extends State<ButtonStates> with SingleTickerProviderStateMixin {
+class ButtonStatesState extends State<ButtonStates> with SingleTickerProviderStateMixin {
   ButtonState _currentState = ButtonState.initial;
   late AnimationController _controller;
   late Animation<double> _animation;

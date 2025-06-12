@@ -38,7 +38,6 @@ class FloatingLabel extends StatefulWidget {
 
 class _FloatingLabelState extends State<FloatingLabel> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _animation;
   bool _isFocused = false;
   bool _hasError = false;
   String? _errorText;
@@ -49,10 +48,6 @@ class _FloatingLabelState extends State<FloatingLabel> with SingleTickerProvider
     _controller = AnimationController(
       duration: const Duration(milliseconds: 200),
       vsync: this,
-    );
-    _animation = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOut,
     );
   }
 
