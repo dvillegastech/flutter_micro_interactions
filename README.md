@@ -1,5 +1,10 @@
 # Flutter Micro Interactions
 
+<a href="https://coff.ee/dvillegas" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="150" />
+</a>
+
+
 ![Preview](micro_interactions.gif)
 
 A collection of pre-built micro-interactions and animations for Flutter apps. Make your app feel more responsive and engaging with minimal effort. This package provides easy-to-use widgets that add professional animations to your Flutter application.
